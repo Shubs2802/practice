@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Our Love Story Begins ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      text-align: center;
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle, #1a001f, #000);
+      color: white;
+    }
+
+    h1 { margin-top: 70px; font-size: 40px; }
+    h2 { font-weight: normal; }
+
+    button {
+      padding: 15px 35px;
+      font-size: 20px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      margin: 20px;
+      transition: 0.3s;
+    }
+
+    #yesBtn { background: #ff1744; color: white; }
+    #noBtn { background: white; color: #ff1744; position: absolute; }
+
+    .heart {
+      position: absolute;
+      color: pink;
+      animation: float 5s linear infinite;
+    }
+
+    @keyframes float {
+      from { transform: translateY(100vh); opacity: 1; }
+      to { transform: translateY(-10vh); opacity: 0; }
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      animation: twinkle 2s infinite alternate;
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.3; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fade {
+      from { opacity: 1; transform: scale(1); }
+      to { opacity: 0; transform: scale(2); }
+    }
+  </style>
+</head>
+<body>
+
+<h1 style="margin-top:80px;">You already know you're special… but still 💞</h1>
+<h2>I had to ask this properly ❤️</h2>
+
+<h1>Will you be my Valentine? 💖</h1>
+
+<button id="yesBtn" onclick="yesClick()">YES ❤️</button>
+<button id="noBtn" onmouseover="moveButton()">NO 😜</button>
+
+<script>
+/* ⭐ Stars */
+for (let i = 0; i < 120; i++) {
+  const star = document.createElement("div");
+  star.className = "star";
+  star.style.left = Math.random() * 100 + "vw";
+  star.style.top = Math.random() * 100 + "vh";
+  star.style.animationDuration = (Math.random() * 2 + 1) + "s";
+  document.body.appendChild(star);
+}
+
+/* 💖 Hearts */
+function createHearts() {
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 20 + "px";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+  }, 300);
+}
+
+/* 🎆 Fireworks */
+function createFireworks() {
+  setInterval(() => {
+    const firework = document.createElement("div");
+    firework.innerHTML = "✨💥✨";
+    firework.style.position = "absolute";
+    firework.style.left = Math.random() * 100 + "vw";
+    firework.style.top = Math.random() * 100 + "vh";
+    firework.style.fontSize = "30px";
+    firework.style.animation = "fade 1s ease-out";
+    document.body.appendChild(firework);
+    setTimeout(() => firework.remove(), 1000);
+  }, 300);
+}
+
+/* 😈 NO button runs */
+function moveButton() {
+  const btn = document.getElementById("noBtn");
+  btn.style.top = Math.random() * window.innerHeight + "px";
+  btn.style.left = Math.random() * window.innerWidth + "px";
+}
+
+/* ❤️ YES click */
+function yesClick() {
+  document.body.innerHTML = `
+    <h1 style="margin-top:120px;">The queen has spoken… and I’m the chosen one 👑💖</h1>
+    <h2>I may joke around, but loving you is the most serious thing in my life 💞🌹</h2>
+  `;
+  createHearts();
+  createFireworks();
+}
+</script>
+
+</body>
+</html>
